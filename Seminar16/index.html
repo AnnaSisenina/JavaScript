@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body>
+    <h1 class="to_do">ToDo</h1>
+    <input type="text" name="" id="task_input">
+    <button onclick="addTask()">Add Task</button>
+    <ul></ul>
+    
+    <!-- <script src="index.js" type="module"></script> -->
+    <!-- <script src="nasa.js" type="module"></script> -->
+    <!-- <script src="localstorage.js"></script> -->
+    <script>
+        const inputEl = document.querySelector('#task_input');
+        const ulEl = document.querySelector('ul');
+
+        const savedTask = JSON.parse(localStorage.getItem('task')) || [];
+        savedTask.forEach(task => {
+            const liEl = document.createElement('li');
+            liEl.textContent = task;
+            ulEl.appendChild(liEl);
+        });
+
+        const addTask = () => {
+            const text = inputEl.value;
+            const liEl = document.createElement('li');
+            liEl.textContent = text;
+            ulEl.appendChild(liEl);
+            savedTask.push(text);
+            localStorage.setItem('task', JSON.stringify(savedTask));
+            inputEl.value = '';
+        }
+
+        
+    </script>
+</body>
+</html>
