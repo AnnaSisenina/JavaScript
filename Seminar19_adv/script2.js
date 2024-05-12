@@ -8,11 +8,14 @@ keys.forEach(element => {
     const productElement = templateContent.cloneNode(true);
     
     const reviewBlock = productElement.querySelector('.review_block');
-    productElement.querySelector('.product_name').textContent = element;
+    const productName = productElement.querySelector('.product_name');
+    productName.textContent = element;
     
     const reviewContainer = productElement.querySelector('.reviews');
+    reviewContainer.style.display = 'none';
     
     let reviewsArray = JSON.parse(localStorage.getItem(element));
+
 
     reviewsArray.forEach((review, index) => {
         const reviewElement = document.createElement('div');
@@ -31,16 +34,23 @@ keys.forEach(element => {
          deleteButton.addEventListener('click', function() {
             const reviewElement = this.previousElementSibling;;
             const reviewData = reviewElement.textContent;
-            const review = reviewData.split(': ')[1];
 
             reviewsArray.splice(index, 1); 
             localStorage.setItem(element, JSON.stringify(reviewsArray));
 
             reviewElement.remove();
             deleteButton.remove();
+        });   
+    });
 
-        });
-    })
+    productName.addEventListener('click', function() {
+        if (reviewContainer.style.display === 'none') {
+            reviewContainer.style.display = 'block';
+        } else {
+            reviewContainer.style.display = 'none';
+        }
+    });
+
 container.appendChild(reviewBlock);
 });
 
