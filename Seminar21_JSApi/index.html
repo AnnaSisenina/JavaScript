@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .slider-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 500px;
+      }
+
+      .slide-image {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+
+      .prev-btn,
+      .next-btn {
+        position: absolute;
+        font-size: 24px;
+        padding: 10px 15px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border: none;
+        cursor: pointer;
+      }
+
+      .prev-btn {
+        left: 20px;
+      }
+
+      .next-btn {
+        right: 20px;
+      }
+
+      .navigation-dots {
+        position: absolute;
+        bottom: 20px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .navigation-dots .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #ccc;
+        margin: 0 5px;
+        cursor: pointer;
+      }
+
+      .navigation-dots .dot.active {
+        background-color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider-container">
+      <img class="slide-image" src="" alt="Slide Image" />
+      <button class="prev-btn">Предыдущее изображение</button>
+      <button class="next-btn">Следующее изображение</button>
+      <div class="navigation-dots"></div>
+    </div>
+    <script src="Script.js"></script>
+  </body>
+</html>
