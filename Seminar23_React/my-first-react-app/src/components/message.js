@@ -1,3 +1,5 @@
+import Comments from "./Comments";
+
 export default function Message({name, text}) {
     const containerStyles = {
         display: 'flex',
@@ -12,13 +14,16 @@ export default function Message({name, text}) {
         borderRadius: '8px',
         padding: '16px',
         boxSizing: 'border-box',
-        width: '300px',
+        width: '500px',
         marginBottom: '20px',
       };
       
     return (
         <div style={containerStyles}>
             <p style={messageStyles}> <span style={{color: "#888"}}>Сообщение от пользователя {name}:</span> {text}</p>
+            <p style={{margin: '5px', fontSize: "12px"}} > Комментарии пользователей: </p>
+            <Comments />
         </div>
+        
     )
 }
